@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StartButton : MonoBehaviour
+{
+    public AudioSource audioSrouce;
+    public AudioClip gameMusic;
+
+    private void Awake()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void StartGame()
+    {
+        transform.localScale = Vector3.zero;
+        Time.timeScale = 1f;
+
+        if(audioSrouce && gameMusic)
+        {
+            audioSrouce.clip = gameMusic;
+            audioSrouce.loop = true;
+            audioSrouce.Play();
+        }
+    }
+}
